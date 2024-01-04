@@ -63,12 +63,12 @@ function onBtnStartClick() {
   btnStart.classList.remove('active-btn');
   btnStart.disabled = true;
   const time = userSelectedDate.getTime();
-        setInterval(() => {
+        const timer = setInterval(() => {
             const currentTime = Date.now();
             const deltaTime = time - currentTime;
             const timeComponents = convertMs(deltaTime);
             if (deltaTime <= 0) {
-              clearInterval();
+              clearInterval(timer);
               inputDate.disabled = false;
               inputDate.classList.remove('datetime-picker-disable');
                 return;
